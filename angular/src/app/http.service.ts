@@ -5,5 +5,26 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HttpService {
 
+  activities = [];  // angie populate
+  locations = [];
+
   constructor(private _http: HttpClient) { }
+
+
+
+  getUser(id){
+    // gets a user
+  }
+
+  getUsers(){
+    // gets all users
+  }
+
+  createDate(id, body){
+    // creates a date
+  }
+
+  updateUser(id, body){
+    // patches a user
+  }
 }
