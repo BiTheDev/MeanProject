@@ -10,10 +10,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { UpcomingplanComponent } from './upcomingplan/upcomingplan.component';
 import { GenerateplanComponent } from './generateplan/generateplan.component';
-import { CancelComponent } from './cancel/cancel.component';
 import { DetailComponent } from './detail/detail.component';
 import { HomeComponent } from './home/home.component';
 import {RegisterComponent} from './register/register.component';
+import { OverviewComponent } from './overview/overview.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,16 +25,19 @@ import {RegisterComponent} from './register/register.component';
     UserprofileComponent,
     UpcomingplanComponent,
     GenerateplanComponent,
-    CancelComponent,
     DetailComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    OverviewComponent,
+    CalendarComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]
