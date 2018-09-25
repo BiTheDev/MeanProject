@@ -44,12 +44,12 @@ export class GenerateplanComponent implements OnInit {
   // then it will take this date info and push it to user2
 
   createDate(){
-    this._dateForm.user2 = getRandomMatch();
+    this._dateForm.user2 = this.getRandomMatch();
     let observer = this._httpService.createDate(this._currentUser._id, this._dateForm);
     observer.subscribe(data1 => {
       let _dateData = data1;
       // push to invited user's date array
-      let secondObs = this._httpService.updateUserDate(_dateData.user2._id, _dateData);
+      let secondObs = this._httpService.updateUser(_dateData['user2']['_id'], _dateData);
       secondObs.subscribe(data2 => {
         console.log("Create Date data:", data2);
         if (data2['errors']){
@@ -69,10 +69,21 @@ export class GenerateplanComponent implements OnInit {
   // possibly only include those who don't currently don't have invites or less than 3 or somethig like that
   
   getRandomMatch(){
-    let observer = this._httpService.getUsers();
+    let observer = this._httpService.getUsers(this._currentUser.city);
     observer.subscribe(data => {
       let _potentialMatches = data;
-      let num = Math.floor(Math.random() * _potentialMatches.length);
+      for(let user in _potentialMatches){
+        // Remove logged in user from the list if that shows up.
+        if (user['_id'] == this._currentUser['_id']){
+          delete _potentialMatches[user];
+        }
+        // Check gender (might happen in the query instead)
+        if (user['gender'] != this._currentUser.genderPref){
+          delete _potentialMatches[user];
+        }
+      }
+
+      let num = Math.floor(Math.random() * Object.keys(_potentialMatches).length);
       let match = _potentialMatches[num];
       return match;
     })

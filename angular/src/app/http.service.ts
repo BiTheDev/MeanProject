@@ -30,8 +30,8 @@ export class HttpService {
     return this._http.get('/api/User/' + userId);
   }
 
-  getUsers(){
-    return this._http.get('/api/Users');
+  getUsers(city){
+    return this._http.get('/api/Users/'+city);
   }
 
   createDate(user1_id, body){
