@@ -78,7 +78,7 @@ export class GenerateplanComponent implements OnInit {
           delete _potentialMatches[user];
         }
         // Check gender (might happen in the query instead)
-        if (user['gender'] != this._currentUser.genderPref){
+        if (user['gender'] != this._currentUser.gender){
           delete _potentialMatches[user];
         }
       }
