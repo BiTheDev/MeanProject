@@ -7,20 +7,21 @@ goose.connect("mongodb://localhost:27017/Project", {useNewUrlParser: true},(errs
 const DateSchema = new goose.Schema({
     date:{
         type:Date,
-        required: [true, "when do you want to meet up?"]
+        required: [true, "Meet up time is missing"]
     },
     time:{
         type:Date,
         required:[true, "time?"]
     },
     location:{
+        type: String,
     },
     activity:{
         type:String,
     },
     dressCode:{
         type:String,
-        required:[true, "How are you gonna meet up with no dress code?"],
+        required:[true, " Oops, you forgot dress code"],
 
     },
     user1:{
@@ -57,12 +58,11 @@ const UserSchema = new goose.Schema({
     },
     password : {
         type : String,
-        required : [true, "Password"],
-        minlength : [8, "At least 8 characters"]
+        minlength : [8, "User password requires at least 8 characters"]
     },
     gender:{
         type:String,
-        required : [true, "What is your gender?"]
+        required : [true, "Please select your gender"]
     },
     age:{
         type:Number,
@@ -71,12 +71,8 @@ const UserSchema = new goose.Schema({
     },
     City:{
         type:String,
-        required:[true, "Where do you live?"]
-    },
-    genderPref:{
-        type:String,
-        default:"any"
-    },
+        required:[true, "City name is missing"]
+    }
     Date:[DateSchema],
 })
 
