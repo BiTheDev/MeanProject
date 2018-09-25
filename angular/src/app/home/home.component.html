@@ -1,14 +1,16 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
-    <ul class="navbar-nav ">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-end">
+    <ul class="navbar-nav col-8 mx-3 text-left">
         <li class="nav-item active">
-            <a class="nav-link" href="#">DateCatcher</a>
+            <a class="nav-link" [routerLink]="['register']"><strong>DateCatcher</strong></a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
+    </ul>
+    <ul class="navbar-nav col-3">
+        <li class="nav-item mx-3">
+            <a class="nav-link" [routerLink]="['/login']">Login</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="">About us</a>
+        <li class="nav-item mx-3">
+            <a class="nav-link" [routerLink]="['/about']">About us</a>
         </li>
     </ul>
 </nav>
