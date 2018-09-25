@@ -10,7 +10,17 @@ import { ActivatedRoute, Params } from  '@angular/router';
 export class GenerateplanComponent implements OnInit {
 
   _currentUser: any;       // the current logged in user, needs initial values.
-  _dateForm: any;          // probably needs initial values.
+  
+  _dateForm: any = {
+    date: null,
+    time: null,
+    activity: "",
+    location: "",
+    dressCode: "",
+    user1: null,
+    user2: null,
+    invitaion: true
+  }          // probably needs initial values.
 
 
   constructor(
@@ -18,7 +28,15 @@ export class GenerateplanComponent implements OnInit {
     private _route : ActivatedRoute
   ) { }
 
+
   ngOnInit() {
+    this._route.params.subscribe((params: Params) => {
+      let observer = this._httpService.getUser(params.userId);
+      observer.subscribe(data => {
+        this._currentUser = data;
+        this._dateForm.user1 = this._currentUser;
+      })
+    })
   }
 
   // createDate will first grab a randomly matched user and attach it to the dateForm
@@ -30,10 +48,15 @@ export class GenerateplanComponent implements OnInit {
     let observer = this._httpService.createDate(this._currentUser._id, this._dateForm);
     observer.subscribe(data1 => {
       let _dateData = data1;
+      // push to invited user's date array
       let secondObs = this._httpService.updateUserDate(_dateData.user2._id, _dateData);
       secondObs.subscribe(data2 => {
+        console.log("Create Date data:", data2);
         if (data2['errors']){
           console.log("User2's update failed to add date.");
+        }
+        else {
+          console.log("Date successfully created!");
         }
       })
 
@@ -59,14 +82,11 @@ export class GenerateplanComponent implements OnInit {
 
   getRandomActivity(){
     let activities = this._httpService.activities;
-    return activities[Math.floor(Math.random()* activities.length)];
+    this._dateForm.activity = activities[Math.floor(Math.random()* activities.length)].activity;
+    this._dateForm.location = this._dateForm.activity.locations[Math.floor(Math.random() * this._dateForm.activity.locations.length)];
   }
 
   getRandomLocation(){
-    let locations = this._httpService.locations;
-    return locations[Math.floor(Math.random() * locations.length)];
+    this._dateForm.location = this._dateForm.activity.locations[Math.floor(Math.random() * this._dateForm.activity.locations.length)];
   }
-
-
-
 }
