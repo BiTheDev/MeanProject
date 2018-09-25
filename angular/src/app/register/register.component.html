@@ -1,3 +1,50 @@
-<p>
-  register works!
-</p>
+<!-- Registration Form -->
+<div class="wrapper" [style.background-image]="'url(' + 'http://avante.biz/wp-content/uploads/Coffee-Cup-Images-Wallpapers/Coffee-Cup-Images-Wallpapers-008.jpg' + ')'">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-left">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['/']"><strong>DateCatcher</strong></a>
+            </li>
+        </ul>
+    </nav>
+    <div class="signup-box text-center">    
+        <h1 class="text-white">Registration</h1>
+        <div class="textbox">
+            <form>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="User name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Confirm Password" name="confirm" required>
+                </div>
+                <div class="form-group">
+                    <select class="form-control" placeholder="Gender" name="gender" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="number" min="18" class="form-control" placeholder="Age" name="age" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="City" name="city" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+                <button class="btn btn-danger" [routerLink]="['/']">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+            
+
+
+
+
