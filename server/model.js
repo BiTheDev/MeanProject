@@ -69,10 +69,10 @@ const UserSchema = new goose.Schema({
         required:[true, "Please enter your age !"],
         min:[18, "You must be older than 18 !"]
     },
-    City:{
+    city:{
         type:String,
         required:[true, "City name is missing"]
-    }
+    },
     Date:[DateSchema],
 })
 
