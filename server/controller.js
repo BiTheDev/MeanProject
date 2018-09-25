@@ -2,9 +2,12 @@ const bcrypt = require('bcrypt-as-promised');
 const User = require("./model");
 
 module.exports = {
-    CreateUser: (req,res) =>User.create(req.body)
-                            .then(data=>console.log("Create User success") || res.json(data))
-                            .catch(errs=>console.log("Create User error") || res.json(errs)),
+    Register: (req,res) =>User.create(req.body)
+                            .then(data=>console.log("Register success") || res.json(data))
+                            .catch(errs=>console.log("Register error") || res.json(errs)),
+    Login:(req,res) =>User.findOne({email:req.body.LoginEmail})
+                            .then(data=>console.log("Login  success") || res.json(data))
+                            .catch(errs=>console.log("Login error") || res.json(errs)),
     GetUser:(req,res) =>User.findById(req.params.id)                 
                             .then(data=>console.log("get one User success") || res.json(data))
                             .catch(errs=>console.log("get one User error") || res.json(errs)),
