@@ -10,30 +10,37 @@
     <div class="signup-box text-center">    
         <h1 class="text-white">Registration</h1>
         <div class="textbox">
-            <form>
+            <form (submit)="Register()">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="User name" name="name" required>
+                    <input type="text" class="form-control" placeholder="First name" 
+                        name="firstname" required [(ngModel)]="newUser.firstname">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Email" name="email" required>
+                    <input type="text" class="form-control" placeholder="Email" 
+                        name="email" required [(ngModel)]="newUser.email">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password" name="password" required>
+                    <input type="password" class="form-control" placeholder="Password" 
+                        name="password" required [(ngModel)]="newUser.password">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Confirm Password" name="confirm" required>
+                    <input type="password" class="form-control" placeholder="Confirm Password" 
+                    name="confirm" required [(ngModel)] = "confirmpassword">
                 </div>
                 <div class="form-group">
-                    <select class="form-control" placeholder="Gender" name="gender" required>
+                    <select class="form-control" placeholder="Gender" name="gender" 
+                        required [(ngModel)]="newUser.gender">
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <input type="number" min="18" class="form-control" placeholder="Age" name="age" required>
+                    <input type="number" min="18" class="form-control" placeholder="Age" 
+                        name="age" required [(ngModel)]="newUser.age">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="City" name="city" required>
+                    <input type="text" class="form-control" placeholder="City" name="city" 
+                        required [(ngModel)]="newUser.city">
                 </div>
                 <button type="submit" class="btn btn-primary">Sign Up</button>
                 <button class="btn btn-danger" [routerLink]="['/']">Cancel</button>

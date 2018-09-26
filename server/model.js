@@ -76,7 +76,7 @@ const UserSchema = new goose.Schema({
     Date:[DateSchema],
 })
 
-UserSchema.plugin(uniqueValidator,  { message: 'Error, {PATH} already in the database' });
+// UserSchema.plugin(uniqueValidator,  { message: 'Error, {PATH} already in the database' });
 
 module.exports = goose.model('User', UserSchema)
 

@@ -8,7 +8,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   error;
-  LoginUser: {email:"", password:""};
+  loginUser = {email:"", password:""};
   constructor(
     private _httpService: HttpService,
     private _route: ActivatedRoute,
@@ -18,15 +18,16 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   Login(){
-    let obs = this._httpService.login(this.LoginUser);
-      obs.subscribe(data=>{
-        if(data['errors']){
-          console.log("data error");
-          console.log(data['errors']);
-        }else{
-          console.log("Login success");
-        return this._router.navigate(['/dashboard']);
-        }
-      })
+    let obs = this._httpService.login(this.loginUser);
+    obs.subscribe(data=>{
+      console.log("Login user data:", data);
+      if(data['errors']){
+        console.log("data error");
+        console.log(data['errors']);
+      }else{
+        console.log("Login success");
+      return this._router.navigate(['/dashboard']);
+      }
+    })
   }
 }

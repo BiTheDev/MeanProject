@@ -9,7 +9,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
   newUser = { 
     firstname: "", 
-    lastname:"", email:"", 
+    email:"", 
     password:"", 
     gender:"", 
     age:"", 
@@ -31,13 +31,14 @@ export class RegisterComponent implements OnInit {
     }else{
       let obs = this._httpService.createUser(this.newUser);
       obs.subscribe(data=>{
+        console.log("createUser server respons data:", data)
         if(data['errors']){
           console.log(data['error']); 
         }else{
           console.log("Create User success", data);
           this.newUser = { 
             firstname: "", 
-            lastname:"", email:"", 
+            email:"", 
             password:"", 
             gender:"", 
             age:"", 
