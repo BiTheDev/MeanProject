@@ -12,12 +12,14 @@ import { HomeComponent } from './home/home.component';
 import { OverviewComponent } from './overview/overview.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { ContactComponent } from './contact/contact.component';
-
+import { DescriptionComponent } from './description/description.component'
 const routes: Routes = [
     { path: '' , component: HomeComponent }, 
     { path: 'register', component: RegisterComponent },
     { path: 'login', component: LoginComponent },
-    { path: 'about', component: AboutComponent },
+    { path: 'about', component: AboutComponent , children:[
+        {path: 'contact/:id', component : DescriptionComponent}
+    ] },
     { path: "dashboard", component: DashboardComponent, children: [
         { path: '', component: OverviewComponent },
         { path: 'profile', component: UserprofileComponent },
