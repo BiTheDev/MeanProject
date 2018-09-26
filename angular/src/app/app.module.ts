@@ -17,7 +17,8 @@ import {RegisterComponent} from './register/register.component';
 import { OverviewComponent } from './overview/overview.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { AboutComponent } from './about/about.component';
-import { ContactComponent } from './contact/contact.component'
+import { ContactComponent } from './contact/contact.component';
+import { DescriptionComponent } from './description/description.component'
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ContactComponent } from './contact/contact.component'
     CalendarComponent,
     AboutComponent,
     ContactComponent,
+    DescriptionComponent,
     
   ],
   imports: [
