@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt-as-promised');
+
 const User = require("./model");
 
 module.exports = {

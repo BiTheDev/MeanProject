@@ -16,7 +16,6 @@ import { HomeComponent } from './home/home.component';
 import {RegisterComponent} from './register/register.component';
 import { OverviewComponent } from './overview/overview.component';
 import { CalendarComponent } from './calendar/calendar.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component'
 
