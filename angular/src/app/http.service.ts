@@ -23,19 +23,23 @@ export class HttpService {
 
   constructor(private _http: HttpClient) { }
   createUser(body){
-    return this._http.post('/api/User', body);
+    return this._http.post('/api/User/new', body);
   }
-
+  createDate(user1_id, body){
+    return this._http.put('api/User/newdate' + user1_id, body);
+  }
+  getLoginUser(body){
+    return this._http.get('/api/User/login', body);
+  }
   getUser(userId){
     return this._http.get('/api/User/' + userId);
+  }
+  login(body){
+    return this._http.get("api/login", body);
   }
 
   getUsers(city){
     return this._http.get('/api/Users/'+city);
-  }
-
-  createDate(user1_id, body){
-    return this._http.put('api/User/' + user1_id, body);
   }
 
   updateUser(user2_id, body){
@@ -46,7 +50,4 @@ export class HttpService {
     return this._http.delete('api/Date/Destroy/' + date_id);
   }
 
-  login(body){
-    return this._http.get("api/User/login", body);
-  }
 }

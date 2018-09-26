@@ -29,9 +29,15 @@ export class DashboardComponent implements OnInit {
     this._route.params.subscribe((params: Params) => {
       let observer = this._httpService.getUser(params.userId);
       observer.subscribe(data => {
-        this._currentUser._id = data['_id'];
-        this._currentUser.firstname = data['firstname'];
-        this._currentUser.Date = data['Date'];
+        if(data['errors']){
+          console.log("There were errors grabbing user:", data['errors']);
+        }
+        else{
+          console.log("CurrentUser grabbed")
+          this._currentUser._id = data['_id'];
+          this._currentUser.firstname = data['firstname'];
+          this._currentUser.Date = data['Date'];
+        }
       })
     })
   }
@@ -39,6 +45,7 @@ export class DashboardComponent implements OnInit {
   // adding dates to our invites and accepts lists for display
   // only populating the user parts of the array with _id and firstname for privacy concerns
   populateArrays() {
+    console.log("Hitting populateArrays");
     for(let date in this._currentUser.Date){
       if(date['user1'] != this._currentUser._id && date['invitation == true']){
         let dateToPush = date;
