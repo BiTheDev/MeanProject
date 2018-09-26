@@ -45,11 +45,6 @@ const UserSchema = new goose.Schema({
         required :[true, "Please enter your first name!"],
         minlength:[2,"Name must be longer than 2 characters"]
     },
-    lastname:{
-        type: String,
-        required :[true, "Please enter your last name!"],
-        minlength:[2,"Name must be longer than 2 characters"]
-    },
     email : {
         type : String,
         required : [true, "Please enter your email"],
