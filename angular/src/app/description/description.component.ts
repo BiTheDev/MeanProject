@@ -31,21 +31,21 @@ export class DescriptionComponent implements OnInit {
         if (id == 1) {
             this.contactInfo = {
                 name: "Brian Ho",
-                intro: "Backend and database management",
+                intro: "Backend and Database Management",
                 phone: "222-222-222",
                 email: "samoyed@gmail.com"
             }
         } else if (id == 2) {
             this.contactInfo = {
                 name: "Angie To",
-                intro: "Frontend and project management",
+                intro: "Frontend and Project Management",
                 phone: "510-333-0066",
                 email: "bunbun@gmail.com"
             }
         } else if (id == 3) {
             this.contactInfo = {
                 name: "Richard Bullock",
-                intro: "Middle-end and API technologies",
+                intro: "Middle-end and API Technologies",
                 phone: "555-555-555",
                 email: "seriousmeow@gmail.com"
             }
