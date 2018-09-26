@@ -4,16 +4,23 @@
     font-family: sans-serif;
 }
 
+.wrapper {
+    width: 100%;
+    height: 82vh;
+    background-size: cover;
+}
+
 .team-section {
     overflow: hidden;
     text-align: center;
-    background: honeydew;
-    padding: 60px;
+    background: lightslategray;
+    padding: 55px;
 }
 
 .team-section h1 {
+    color: lightblue;
     text-transform: uppercase;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
     font-size: 40px;
 }
 
@@ -22,8 +29,8 @@
     margin: auto;
     width: 160px;
     height: 3px;
-    background: maroon;
-    margin-bottom: 40px;
+    background: seagreen;
+    margin-bottom: 35px;
 }
 
 .ps {
@@ -48,3 +55,4 @@
 .ps a:hover > img {
     filter: none;
 }
+
