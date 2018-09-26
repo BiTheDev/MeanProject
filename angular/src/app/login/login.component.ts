@@ -19,14 +19,14 @@ export class LoginComponent implements OnInit {
   }
   Login(){
     let obs = this._httpService.login(this.LoginUser);
-    if(obs == null){
-      console.log("Invalid Email");
-        this.error = "Invalid Email";
-    }else{
       obs.subscribe(data=>{
-        console.log("Login success");
+        if(data['errors']){
+          console.log("data error");
+          console.log(data['errors']);
+        }else{
+          console.log("Login success");
         return this._router.navigate(['/dashboard']);
+        }
       })
-    }
   }
 }
