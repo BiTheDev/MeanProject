@@ -44,7 +44,7 @@ export class GenerateplanComponent implements OnInit {
       let observer = this._httpService.getUser(params.userId);
       observer.subscribe(data => {
         if(data['errors']){
-          console.log('There were errors getting current user': data['errors']);
+          console.log('There were errors getting current user:',data['errors']);
         }
         else{
           console.log("Current User found.")
