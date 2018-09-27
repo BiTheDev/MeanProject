@@ -14,7 +14,7 @@
                 </a>
                 <div ngbDropdownMenu aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" [routerLink]="['profile']">Profile</a>
-                    <a class="dropdown-item" [routerLink]="['plans']">My Calendar</a>
+                    <a class="dropdown-item" [routerLink]="['plans', _currentUser._id]">My Calendar</a>
                     <a class="dropdown-item" href="#">Invitations</a>
                     <a class="dropdown-item" href="#">Notifications</a>
                     <a class="dropdown-item" href="#">Log out</a>
