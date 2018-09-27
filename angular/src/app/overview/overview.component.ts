@@ -23,7 +23,8 @@ export class OverviewComponent implements OnInit {
 
     ngOnInit() {
         this._route.params.subscribe((params: Params) => {
-            let observer = this._httpService.getUser(params.userId);
+            console.log(params);
+            let observer = this._httpService.getUser(params.id);
             observer.subscribe(data => {
                 if(data['errors']) {
                     console.log("There were errors grabbing user:", data['errors']);
@@ -33,6 +34,7 @@ export class OverviewComponent implements OnInit {
                     this._currentUser._id = data['_id'];
                     this._currentUser.firstname = data['firstname'];
                     this._currentUser.Date = data['Date'];
+                    this.populateArrays();
                 }
             })
         })
@@ -43,7 +45,7 @@ export class OverviewComponent implements OnInit {
     populateArrays() {
         console.log("Hitting populateArrays");
         for(let date in this._currentUser.Date) {
-            if(date['user1'] != this._currentUser._id && date['invitation == true']){
+            if(date['user1']['_id'] != this._currentUser._id && date['invitation == true']){
                 let dateToPush = date;
                 dateToPush['user1'] = { firstname : date['user1']['firstname'], _id : date['user1']['_id']};
                 dateToPush['user2'] = { firstname : date['user2']['firstname'], _id : date['user2']['_id']};
@@ -58,5 +60,9 @@ export class OverviewComponent implements OnInit {
         }
         console.log("Invites:", this.invites);
         console.log("Accepts:", this.accepts);
+    }
+
+    logout(){
+        
     }
 }
