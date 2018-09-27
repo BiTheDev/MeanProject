@@ -13,8 +13,8 @@
                     {{ _currentUser.firstname }}
                 </a>
                 <div ngbDropdownMenu aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Profile</a>
-                    <a class="dropdown-item" href="#">My Calendar</a>
+                    <a class="dropdown-item" [routerLink]="['profile']">Profile</a>
+                    <a class="dropdown-item" [routerLink]="['plans']">My Calendar</a>
                     <a class="dropdown-item" href="#">Invitations</a>
                     <a class="dropdown-item" href="#">Notifications</a>
                     <a class="dropdown-item" href="#">Log out</a>
@@ -25,15 +25,48 @@
     <div class="container mx-auto text-center primary col-10">
         <h2>Invitations</h2>
         <hr>
+        <div class="card" style="width:300px">
+            <div class="card-body">
+                <h4 class="card-title">User Name</h4>
+                <p class="card-text">Plan name</p>
+                <!-- Button to Open the Modal -->
+                
+                <ng-template #content let-modal>
+                    <div class="modal-header">
+                        <h4 class="modal-title">PLAN NAME</h4>
+                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Date:</p>
+                        <p>Time: </p>
+                        <p>Location: </p>
+                        <p>Activity: </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+                    </div>
+                </ng-template>
+                
+                <button class="btn btn-link detail" (click)="openVerticallyCentered(content)">Detail</button>
+                <a href="#" class="btn btn-link accept">Accept</a>
+                <a href="#" class="btn btn-link decline">Decline</a>
+            </div>
+        </div>
     </div>
     <div class="container mx-auto row secondary">
         <div id="notifications" class="container mx-auto text-center col-5">
             <h2>Upcoming Dates</h2>
             <hr>
-            <button class="btn btn-light" [routerLink]="['plans']">Details</button>
+            <button class="btn btn-light" [routerLink]="['/plans']">Details</button>
         </div>
         <div id="events" class="container mx-auto text-center col-5">
             <h2>Notifications</h2>
+            <hr>
+            <div class="container mx-auto">
+                <p>_______ said yes! Your date is marked on the calendar</p>
+            </div>
             <hr>
         </div>
     </div>
