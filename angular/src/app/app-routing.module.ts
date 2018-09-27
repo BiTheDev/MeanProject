@@ -25,9 +25,10 @@ const routes: Routes = [
         { path: 'profile', component: UserprofileComponent },
         { path: 'contact', component: ContactComponent },
         { path: 'plans', component: UpcomingplanComponent, children: [
-            { path: '', component: CalendarComponent },
+            { path: 'calendar', component: CalendarComponent },
             { path: "detail", component: DetailComponent }
         ]},
+        { path: 'calendar', component: CalendarComponent },
         { path : "randomize", component : GenerateplanComponent }
     ]},
     { path: "**", redirectTo: "/" } 

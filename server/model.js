@@ -1,5 +1,5 @@
 const goose = require("mongoose");
-// const uniqueValidator = require('mongoose-unique-validator');
+const uniqueValidator = require('mongoose-unique-validator');
 
 goose.connect("mongodb://localhost:27017/Project", {useNewUrlParser: true},(errs)=> console.log(errs?errs:"db Project"));
 
@@ -45,6 +45,14 @@ const UserSchema = new goose.Schema({
         required :[true, "Please enter your first name!"],
         minlength:[2,"Name must be longer than 2 characters"]
     },
+<<<<<<< HEAD
+=======
+    // lastname:{
+    //     type: String,
+    //     required :[true, "Please enter your last name!"],
+    //     minlength:[2,"Name must be longer than 2 characters"]
+    // },
+>>>>>>> backend
     email : {
         type : String,
         required : [true, "Please enter your email"],

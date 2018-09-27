@@ -8,7 +8,7 @@ function router(app){
     app.post("/api/login",api.Login);
     app.get("/api/Users/:city",api.GetUsers);
     app.patch("/api/User2/:user2_id",api.UpdateUserDate);
-    app.delete("/api/Date/Destroy/:id",api.RemoveDate);
+    app.delete("/api/Date/Destroy/:date_id",api.RemoveDate);
 
 }
 
