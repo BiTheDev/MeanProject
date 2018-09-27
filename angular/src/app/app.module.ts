@@ -17,17 +17,12 @@ import { RegisterComponent} from './register/register.component';
 import { OverviewComponent } from './overview/overview.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { AboutComponent } from './about/about.component';
-<<<<<<< HEAD
 import { ContactComponent } from './contact/contact.component';
 import { DescriptionComponent } from './description/description.component'
-
-=======
-import { ContactComponent } from './contact/contact.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 // import { FlatpickrModule } from 'angularx-flatpickr';
->>>>>>> backend
 @NgModule({
   declarations: [
     AppComponent,
