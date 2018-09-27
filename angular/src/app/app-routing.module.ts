@@ -12,7 +12,8 @@ import { HomeComponent } from './home/home.component';
 import { OverviewComponent } from './overview/overview.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { ContactComponent } from './contact/contact.component';
-import { DescriptionComponent } from './description/description.component'
+import { DescriptionComponent } from './description/description.component';
+
 const routes: Routes = [
     { path: '' , component: HomeComponent }, 
     { path: 'register', component: RegisterComponent },
@@ -24,16 +25,13 @@ const routes: Routes = [
         { path: '', component: OverviewComponent },
         { path: 'profile', component: UserprofileComponent },
         { path: 'contact', component: ContactComponent },
-        { path: 'plans', component: UpcomingplanComponent, children: [
-            { path: 'calendar', component: CalendarComponent },
-            { path: "detail", component: DetailComponent }
-        ]},
+        { path: 'plans', component: UpcomingplanComponent },
         { path: 'calendar', component: CalendarComponent },
-        { path : "randomize", component : GenerateplanComponent }
+        { path: "detail", component: DetailComponent },
+        { path: "randomize", component : GenerateplanComponent }
     ]},
     { path: "**", redirectTo: "/" } 
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

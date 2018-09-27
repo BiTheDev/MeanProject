@@ -16,8 +16,7 @@ export class GenerateplanComponent implements OnInit {
   }
   
   _dateForm: any = {
-    date: null,
-    time: null,
+    datetime: null,
     activity: "",
     location: "",
     dressCode: "",
@@ -29,9 +28,8 @@ export class GenerateplanComponent implements OnInit {
   beErrors: {
     name : { message : ""},
     dressCode : { message : ""},
-    time : { message : ""}
+    datetime : { message : ""}
   }
-
 
   constructor(
     private _httpService : HttpService,
@@ -72,8 +70,8 @@ export class GenerateplanComponent implements OnInit {
         if(createData['errors']['name']){
           this.beErrors['name'] =  createData['errors']['name'];
         }
-        if(createData['errors']['time']){
-          this.beErrors['time'] =  createData['errors']['time'];
+        if(createData['errors']['datetime']){
+          this.beErrors['datetime'] =  createData['errors']['datetime'];
         }
         if(createData['errors']['dressCode']){
           this.beErrors['dressCode'] =  createData['errors']['dressCode'];

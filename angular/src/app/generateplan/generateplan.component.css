@@ -1,0 +1,13 @@
+.wrapper, form {
+    height: 100%;
+    display: grid;
+}
+
+.form {
+    margin: auto;
+    margin-top: 50px;
+}
+
+button {
+    margin: auto;
+}
