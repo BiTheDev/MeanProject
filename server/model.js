@@ -5,13 +5,9 @@ goose.connect("mongodb://localhost:27017/Project", {useNewUrlParser: true},(errs
 
 
 const DateSchema = new goose.Schema({
-    date:{
+    dateTime:{
         type:Date,
         required: [true, "Meet up time is missing"]
-    },
-    time:{
-        type:Date,
-        required:[true, "time?"]
     },
     location:{
         type: String,
@@ -25,10 +21,10 @@ const DateSchema = new goose.Schema({
 
     },
     user1:{
-        type:Object
+        type:String
     },
     user2:{
-        type:Object,
+        type:String,
     },
     invitation:{
         type:Boolean,
