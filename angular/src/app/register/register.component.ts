@@ -44,7 +44,7 @@ export class RegisterComponent implements OnInit {
             age:"", 
             city:"" 
           }
-          return this._router.navigate(['/dashboard'])
+          return this._router.navigate(['/dashboard/'+data['_id']])
         }
       })
     

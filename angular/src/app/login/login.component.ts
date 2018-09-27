@@ -7,7 +7,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  error;
+  error: any = "";
   loginUser = {email:"", password:""};
   constructor(
     private _httpService: HttpService,
@@ -17,16 +17,20 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
+  
   Login(){
+    this.error = "";
+    console.log("Hitting Login:", this.loginUser);
     let obs = this._httpService.login(this.loginUser);
     obs.subscribe(data=>{
-      console.log("Login user data:", data);
-      if(data['errors']){
-        console.log("data error");
-        console.log(data['errors']);
-      }else{
-        console.log("Login success");
-      return this._router.navigate(['/dashboard']);
+      console.log(data);
+      if(data == null){
+        console.log("Unable to find user");
+        this.error = "Either your email or password was wrong.";
+      }
+      else{
+
+        this._router.navigate(['dashboard/'+data['_id']]);
       }
     })
   }

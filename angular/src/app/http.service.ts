@@ -34,20 +34,16 @@ export class HttpService {
   getUser(userId){
     return this._http.get('/api/User/' + userId);
   }
-  login(body){
-    return this._http.get("api/login", body);
+  login(loginUser){
+    return this._http.post("api/login", loginUser);
   }
-
   getUsers(city){
     return this._http.get('/api/Users/'+city);
   }
-
   updateUser(user2_id, body){
     return this._http.put('api/User2/' + user2_id, body);
   }
-
   deleteDate(date_id){
     return this._http.delete('api/Date/Destroy/' + date_id);
   }
-
 }

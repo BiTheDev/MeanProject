@@ -20,7 +20,7 @@ const routes: Routes = [
     { path: 'about', component: AboutComponent , children:[
         {path: 'contact/:id', component : DescriptionComponent}
     ] },
-    { path: "dashboard", component: DashboardComponent, children: [
+    { path: "dashboard/:id", component: DashboardComponent, children: [
         { path: '', component: OverviewComponent },
         { path: 'profile', component: UserprofileComponent },
         { path: 'contact', component: ContactComponent },
