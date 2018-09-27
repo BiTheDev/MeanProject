@@ -1,13 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { HttpService } from '../http.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-overview',
-  templateUrl: './overview.component.html',
-  styleUrls: ['./overview.component.css']
+    selector: 'app-overview',
+    templateUrl: './overview.component.html',
+    styleUrls: ['./overview.component.css'],
+    encapsulation: ViewEncapsulation.None
 })
 export class OverviewComponent implements OnInit {
+    // for NgbModal
+    closeResult: string;
+    
     // only the user data that we need
     _currentUser: any = {
       _id : "",
@@ -19,7 +24,8 @@ export class OverviewComponent implements OnInit {
     invites = [];
     accepts = [];
     constructor(private _httpService : HttpService,
-                private _route : ActivatedRoute) { }
+                private _route : ActivatedRoute,
+                private modalService: NgbModal) { }
 
     ngOnInit() {
         this._route.params.subscribe((params: Params) => {
@@ -36,6 +42,11 @@ export class OverviewComponent implements OnInit {
                 }
             })
         })
+    }
+
+    // NgbModal - page content at the page center
+    openVerticallyCentered(content) {
+        this.modalService.open(content, { centered: true });
     }
 
     // adding dates to our invites and accepts lists for display

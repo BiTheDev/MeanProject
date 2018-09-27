@@ -1,14 +1,15 @@
 .wrapper {
     height: 180vh;
-    background-image: url("https://steelandoak.ca/wp-content/uploads/2017/11/bulb-and-ballon-minimalist-wallpaper-copy.jpg");
+    background-image: url("https://png.pngtree.com/thumb_back/fw800/back_pic/03/63/81/9357ac78f5a7fd1.jpg");
     background-size: cover;
+    opacity: 0.9;
 }
 
 .primary {
     margin-top: 3%;
     height: 50%;
     background-color: #ffffff;
-    opacity: 0.7;
+    opacity: 0.8;
     padding: 5%;
     border: 2px solid lightsteelblue;
     border-radius: 8px;
@@ -22,7 +23,7 @@
 #notifications {
     height: 100%;
     background-color: #ffffff;
-    opacity: 0.7;
+    opacity: 0.8;
     border: 2px solid lightsteelblue;
     border-radius: 8px;
     padding: 5%;
@@ -31,12 +32,28 @@
 #events {
     height: 100%;
     background-color: #ffffff;
-    opacity: 0.7;
+    opacity: 0.8;
     border: 2px solid lightsteelblue;
     border-radius: 8px;
     padding: 5%;
 }
 
 h2 {
-    color: salmon;
+    color:crimson;
+    font-weight: 800 !important;
+}
+
+.detail {
+    color: cornflowerblue;
+    font-weight: 500;
+}
+
+.accept {
+    color: seagreen;
+    font-weight: 500;
+}
+
+.decline {
+    color: darkred;
+    font-weight: 500;
 }
