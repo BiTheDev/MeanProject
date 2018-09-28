@@ -12,9 +12,10 @@
                 {{ _currentUser.firstname }}
             </a>
             <div ngbDropdownMenu aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" [routerLink]="['profile']">Profile</a>
-                <a class="dropdown-item" [routerLink]="['/calendar']">My Calendar</a>
-                <a class="dropdown-item" [routerLink]="['randomize']">Date Maker</a>
+                <a class="dropdown-item" [routerLink]="['/dashboard',_currentUser._id]">Dashboard</a>
+                <a class="dropdown-item" [routerLink]="['/dashboard',_currentUser._id,'profile']">Profile</a>
+                <a class="dropdown-item" [routerLink]="['/dashboard',_currentUser._id,'calendar']">My Calendar</a>
+                <a class="dropdown-item" [routerLink]="['/dashboard',_currentUser._id,'randomize']">Date Maker</a>
                 <a class="dropdown-item" [routerLink]="['/detail']">Invitations</a>
                 <a class="dropdown-item" [routerLink]="['detail']">Notifications</a>
                 <a class="dropdown-item" href="#">Log out</a>
