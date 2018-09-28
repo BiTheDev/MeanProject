@@ -5,6 +5,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { HttpService } from '../http.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import {CalendarEvent,CalendarEventAction,CalendarEventTimesChangedEvent,CalendarView} from 'angular-calendar';
+
 const colors: any = {
   red: {
     primary: '#ad2121',
@@ -28,6 +29,7 @@ const colors: any = {
 export class CalendarComponent implements OnInit{
   UserId;
   UserDate;
+  _currentUser;
   @ViewChild('modalContent')
   modalContent: TemplateRef<any>;
 
@@ -54,20 +56,28 @@ export class CalendarComponent implements OnInit{
   ngOnInit() {
     this._route.parent.params.subscribe((params: Params) => {
       console.log(params);
-      this.UserId = params.id;
-      console.log(this.UserId);
-    });
-    this.GetUserDate();
+      let observer = this._httpService.getUser(params.id);
+      observer.subscribe(data => {
+          if(data['errors']) {
+              console.log("There were errors grabbing user:", data['errors']);
+          }
+          else {
+              console.log("CurrentUser grabbed")
+              this._currentUser = data;
+          }
+      })
+  })
+    // this.GetUserDate();
   }
-  GetUserDate(){
-    let obs = this._httpService.getUser(this.UserId);
-    obs.subscribe(data=>{
-      console.log("Current User data");
-      this.UserDate = data['Date'];
-      console.log(this.UserDate);
-      console.log(this.UserDate[0]['date']);
-    })
-  }
+  // GetUserDate(){
+  //   let obs = this._httpService.getUser(this.UserId);
+  //   obs.subscribe(data=>{
+  //     console.log("Current User data");
+  //     this.UserDate = data['Date'];
+  //     console.log(this.UserDate);
+  //     console.log(this.UserDate[0]['date']);
+  //   })
+  // }
   // events: CalendarEvent[] = [
   //   {
   //     start: subDays(this.UserDate[0]['date'], 1),
