@@ -13,7 +13,7 @@
             </a>
             <div ngbDropdownMenu aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" [routerLink]="['profile']">Profile</a>
-                <a class="dropdown-item" [routerLink]="['calendar']">My Calendar</a>
+                <a class="dropdown-item" [routerLink]="['/calendar']">My Calendar</a>
                 <a class="dropdown-item" [routerLink]="['randomize']">Date Maker</a>
                 <a class="dropdown-item" [routerLink]="['detail']">Invitations</a>
                 <a class="dropdown-item" [routerLink]="['detail']">Notifications</a>
@@ -30,7 +30,7 @@
             <div class="image container col-4 mt-3"></div>
             <!-- User information -->
             <div class="textbox container col-8">
-                <h2>User Name</h2>
+                <h2>{{ _currentUser.firstname }}</h2>
                 <hr>
                 <p>Email: </p>
                 <p>Gender: </p>
