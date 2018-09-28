@@ -27,15 +27,15 @@
     <div class="container mx-auto box text-center">    
         <div class="row">
             <!-- User profile image -->
-            <div class="image container col-4 mt-3"></div>
+            <div class="image container col-3 mt-3"></div>
             <!-- User information -->
             <div class="textbox container col-8">
                 <h2>{{ _currentUser.firstname }}</h2>
                 <hr>
-                <p>Email: </p>
-                <p>Gender: </p>
-                <p>Age: </p>
-                <p>City: </p>
+                <p>Email: {{ _currentUser.email }}</p>
+                <p>Gender: {{ _currentUser.gender }}</p>
+                <p>Age: {{ _currentUser.age }}</p>
+                <p>City: {{ _currentUser.city }}</p>
             </div>
         </div>
     </div>

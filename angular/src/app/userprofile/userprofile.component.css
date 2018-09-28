@@ -9,7 +9,7 @@
     width: 75%;
     height: 80%;
     position: absolute;
-    margin-top: 5%;
+    margin-top: 20px;;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -30,7 +30,7 @@
 .image {
     background-image: url("http://www.uchong315.com/Public/Uploads/pet_baike/2017-10-20/1508481625_556234295.png");
     background-size: cover;
-    height: 63vh;
+    height: 55vh;
     border-radius: 12px;
     border: 2px solid grey;
 }

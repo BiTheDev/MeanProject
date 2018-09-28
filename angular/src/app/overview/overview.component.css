@@ -1,8 +1,10 @@
 .wrapper {
-    height: 180vh;
     background-image: url("https://png.pngtree.com/thumb_back/fw800/back_pic/03/63/81/9357ac78f5a7fd1.jpg");
-    background-size: cover;
     opacity: 0.9;
+}
+
+.wrapper2 {
+    height: 180vh;
 }
 
 .primary {

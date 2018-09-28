@@ -18,7 +18,6 @@ const DateSchema = new goose.Schema({
     dressCode:{
         type:String,
         required:[true, " Oops, you forgot dress code"],
-
     },
     user1:{
         type:String
@@ -31,7 +30,6 @@ const DateSchema = new goose.Schema({
         default:true
     }
 })
-
 
 
 const UserSchema = new goose.Schema({

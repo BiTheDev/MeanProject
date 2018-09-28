@@ -154,4 +154,13 @@ export class GenerateplanComponent implements OnInit {
             key['message'] = "";
         }
     }
+
+    deleteDate(id) {
+        let obs = this._httpService.deleteDate(id);
+        obs.subscribe(date => {
+            console.log("Date has been removed", date);
+            this.showDates();
+        })
+    }
+
 }

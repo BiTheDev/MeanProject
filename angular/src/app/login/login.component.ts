@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
         this.error = "Either your email or password was wrong.";
       }
       else{
-
+        console.log("User logged in!");
         this._router.navigate(['dashboard/'+data['_id']]);
       }
     })

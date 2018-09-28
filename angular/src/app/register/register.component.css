@@ -1,12 +1,9 @@
 .wrapper {
-    width: 100%;
-    height: 120vh;
-    background-size: cover;
     opacity: 0.9;
 }
 
 .signup-box {
-    width: 320px;
+    width: 350px;
     height: 100%;
     position: absolute;
     margin-top: 8%;
