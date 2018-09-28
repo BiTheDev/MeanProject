@@ -25,7 +25,7 @@ export class UserprofileComponent implements OnInit {
                     console.log("There were errors grabbing user:", data['errors']);
                 }
                 else {
-                    console.log("CurrentUser grabbed")
+                    console.log("CurrentUser grabbed");
                     this._currentUser = data;
                 }
             })

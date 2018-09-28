@@ -47,6 +47,8 @@ export class CalendarComponent implements OnInit{
 
   activeDayIsOpen: boolean = true;
 
+  _currentUser;
+
   constructor(private modal: NgbModal,
     private _httpService: HttpService,
     private _route: ActivatedRoute,
@@ -58,16 +60,27 @@ export class CalendarComponent implements OnInit{
       console.log(params);
       let observer = this._httpService.getUser(params.id);
       observer.subscribe(data => {
-          if(data['errors']) {
-              console.log("There were errors grabbing user:", data['errors']);
-          }
-          else {
-              console.log("CurrentUser grabbed")
-              this._currentUser = data;
-          }
+        if(data['errors']) {
+          console.log("Can't grab user:", data['errors']);
+        } else {
+          console.log("Current user:", data);
+          this._currentUser = data;
+        }
       })
-  })
-    // this.GetUserDate();
+      this.UserId = params.id;
+      console.log(this.UserId);
+    });
+    this.GetUserDate();
+  }
+
+  GetUserDate(){
+    let obs = this._httpService.getUser(this.UserId);
+    obs.subscribe(data=>{
+      console.log("Current User data");
+      this.UserDate = data['Date'];
+      console.log(this.UserDate);
+      console.log(this.UserDate[0]['date']);
+    })
   }
   // GetUserDate(){
   //   let obs = this._httpService.getUser(this.UserId);

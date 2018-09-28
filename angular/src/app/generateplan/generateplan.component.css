@@ -1,12 +1,12 @@
 .wrapper, form {
-    height: 100%;
+    height: auto;
     display: grid;
     background: none;
 }
 
 .form {
     margin: auto;
-    margin-top: 90px;
+    margin-top: 60px;
 }
 
 button {
