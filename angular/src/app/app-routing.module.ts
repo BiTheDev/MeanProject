@@ -25,6 +25,10 @@ const routes: Routes = [
         { path: '', component: OverviewComponent },
         { path: 'profile', component: UserprofileComponent },
         { path: 'contact', component: ContactComponent },
+        { path: 'plans/:id', component: CalendarComponent, children: [
+            { path: "detail", component: DetailComponent }
+        ]},
+        { path : "randomize", component : GenerateplanComponent },
         { path: 'plans', component: UpcomingplanComponent },
         { path: 'calendar', component: CalendarComponent },
         { path: "detail", component: DetailComponent },
