@@ -25,10 +25,17 @@ const routes: Routes = [
         { path: '', component: OverviewComponent },
         { path: 'profile', component: UserprofileComponent },
         { path: 'contact', component: ContactComponent },
+<<<<<<< HEAD
         { path: 'plans/:id', component: CalendarComponent, children: [
             { path: "detail", component: DetailComponent }
         ]},
         { path : "randomize", component : GenerateplanComponent }
+=======
+        { path: 'plans', component: UpcomingplanComponent },
+        { path: 'calendar', component: CalendarComponent },
+        { path: "detail", component: DetailComponent },
+        { path: "randomize", component : GenerateplanComponent }
+>>>>>>> 81faf97439e7f04161f8f14f353f0abd5968ac7c
     ]},
     { path: "**", redirectTo: "/" } 
 ];
