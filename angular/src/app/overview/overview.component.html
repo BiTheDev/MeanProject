@@ -32,34 +32,41 @@
     <div class="container mx-auto text-center primary col-10">
         <h2>Invitations</h2>
         <hr>
-        <div class="card" style="width:300px">
-            <div class="card-body">
-                <h4 class="card-title">User Name</h4>
-                <p class="card-text">Plan name</p>
-                <!-- Button to Open the Modal -->
-                
-                <ng-template #content let-modal>
-                    <div class="modal-header">
-                        <h4 class="modal-title">PLAN NAME</h4>
-                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Date:</p>
-                        <p>Time: </p>
-                        <p>Location: </p>
-                        <p>Activity: </p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
-                    </div>
-                </ng-template>
-                
-                <button class="btn btn-link detail" (click)="openVerticallyCentered(content)">Detail</button>
-                <a href="#" class="btn btn-link accept">Accept</a>
-                <a href="#" class="btn btn-link decline">Decline</a>
+        <!-- We need a for loop to render invitations here -->
+        <div class="row mx-auto">
+            <!-- Run for loop, if clicked, show the detail content of the plan -->
+            <!-- We need a showdetail() function -->
+            <div *ngFor="let invitation of invitations" (click)=showdetail()></div>
+            <!-- End my theory here -->
+            <div class="card mx-3" style="width:280px">
+                <div class="card-body">
+                    <h4 class="card-title">#1</h4>
+                    <p class="card-text">Sender: Meow</p>
+                    <!-- Button to Open the Modal -->
+                    <ng-template #content let-modal>
+                        <div class="modal-header">
+                            <h4 class="modal-title">Meow</h4>
+                            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Date: Saturday, 9/29/18</p>
+                            <p>Time: 3:00 PM</p>
+                            <p>Location: Bellevue Library, Downtown Bellevue</p>
+                            <p>Activity: Play hide and seek</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+                        </div>
+                    </ng-template>
+                    
+                    <button class="btn btn-link detail" (click)="openVerticallyCentered(content)">Detail</button>
+                    <a href="#" class="btn btn-link accept">Accept</a>
+                    <a href="#" class="btn btn-link decline">Decline</a>
+                </div>
             </div>
+            
         </div>
     </div>
     <div class="container mx-auto row secondary">
@@ -72,9 +79,8 @@
             <h2>Notifications</h2>
             <hr>
             <div class="container mx-auto">
-                <p>_______ said yes! Your date is marked on the calendar</p>
+                <p>MatchaPrince said yes! Your date is marked on the calendar</p>
             </div>
-            <hr>
         </div>
     </div>
 

@@ -39,7 +39,6 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     AboutComponent,
     ContactComponent,
     DescriptionComponent,
-    
   ],
   imports: [
     BrowserModule,

@@ -1,13 +1,18 @@
 .wrapper, form {
     height: 100%;
     display: grid;
+    background: none;
 }
 
 .form {
     margin: auto;
-    margin-top: 50px;
+    margin-top: 90px;
 }
 
 button {
     margin: auto;
+}
+
+label, button {
+    font-weight: 900 !important;
 }
