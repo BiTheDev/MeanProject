@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
-import { ActivatedRoute, Params } from  '@angular/router';
+import { ActivatedRoute, Params,Router } from  '@angular/router';
 
 @Component({
     selector: 'app-generateplan',
@@ -38,7 +38,8 @@ export class GenerateplanComponent implements OnInit {
 
     constructor(
         private _httpService : HttpService,
-        private _route : ActivatedRoute
+        private _route : ActivatedRoute,
+        private _router: Router
     ) { }
 
 
@@ -91,9 +92,12 @@ export class GenerateplanComponent implements OnInit {
                 else{
                     console.log("Date Created")
                     let _dateData = createData;
-                    
+                    console.log(_dateData);
+                    console.log(this._dateForm);
+                    console.log(_dateData['Date'][_dateData['Date'].length-1]['user2']);
+                     
                     // push to invited user's date array
-                    let secondObs = this._httpService.updateUser(_dateData['Date'][_dateData['Date'].length-1]['user2'], _dateData['Date'][_dateData['Date'].length-1]);
+                    let secondObs = this._httpService.updateUser(_dateData['Date'][_dateData['Date'].length-1]['user2'], this._dateForm);
                     secondObs.subscribe(pushDateData => {
                         console.log("Create Date data:", pushDateData);
                         if (pushDateData['errors']){
@@ -111,6 +115,7 @@ export class GenerateplanComponent implements OnInit {
                         }
                         else {
                             console.log("Date successfully created!", pushDateData);
+                            return this._router.navigate(['/dashboard/',this._currentUser['_id']]);
                         }
                     })       
                 }
@@ -144,7 +149,7 @@ export class GenerateplanComponent implements OnInit {
             for(let user in shortlist){
         
                 if (shortlist[user]['gender'] != this._currentUser['gender']){
-                    shorterlist.push(shortlist[user];
+                    shorterlist.push(shortlist[user]);
                     console.log("After Removing non-opposites", shorterlist)
                 }
             }
@@ -182,7 +187,7 @@ export class GenerateplanComponent implements OnInit {
         let obs = this._httpService.deleteDate(id);
         obs.subscribe(date => {
             console.log("Date has been removed", date);
-            this.showDates();
+            // this.showDates();
         })
     }
 
