@@ -143,8 +143,8 @@ export class GenerateplanComponent implements OnInit {
             
             for(let user in shortlist){
         
-                if (shortlist[user]['gender'] != this._currentUser['gender']){
-                    shorterlist.push(shortlist[user];
+                if (shortlist[user]['gender'] != this._currentUser['gender']) {
+                    shorterlist.push(shortlist[user]);
                     console.log("After Removing non-opposites", shorterlist)
                 }
             }
@@ -176,14 +176,6 @@ export class GenerateplanComponent implements OnInit {
         for (let key in errors) {
             key['message'] = "";
         }
-    }
-
-    deleteDate(id) {
-        let obs = this._httpService.deleteDate(id);
-        obs.subscribe(date => {
-            console.log("Date has been removed", date);
-            this.showDates();
-        })
     }
 
 }
