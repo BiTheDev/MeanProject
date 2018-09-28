@@ -38,7 +38,7 @@ export class GenerateplanComponent implements OnInit {
 
 
   ngOnInit() {
-    this._route.params.subscribe((params: Params) => {
+    this._route.parent.params.subscribe((params: Params) => {
       let observer = this._httpService.getUser(params.userId);
       observer.subscribe(data => {
         if(data['errors']){

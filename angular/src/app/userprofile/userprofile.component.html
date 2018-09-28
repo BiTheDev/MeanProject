@@ -15,7 +15,7 @@
                 <a class="dropdown-item" [routerLink]="['profile']">Profile</a>
                 <a class="dropdown-item" [routerLink]="['calendar']">My Calendar</a>
                 <a class="dropdown-item" [routerLink]="['randomize']">Date Maker</a>
-                <a class="dropdown-item" [routerLink]="['detail']">Invitations</a>
+                <a class="dropdown-item" [routerLink]="['/detail']">Invitations</a>
                 <a class="dropdown-item" [routerLink]="['detail']">Notifications</a>
                 <a class="dropdown-item" href="#">Log out</a>
             </div>
@@ -30,12 +30,12 @@
             <div class="image container col-4 mt-3"></div>
             <!-- User information -->
             <div class="textbox container col-8">
-                <h2>User Name</h2>
+                <h2>Name: {{ _currentUser.firstname }}</h2>
                 <hr>
-                <p>Email: </p>
-                <p>Gender: </p>
-                <p>Age: </p>
-                <p>City: </p>
+                <p>Email: {{ _currentUser.email }} </p>
+                <p>Gender: {{ _currentUser.gender }}: </p>
+                <p>{{ _currentUser.age }} </p>
+                <p>{{ _currentUser.city }} </p>
             </div>
         </div>
     </div>
