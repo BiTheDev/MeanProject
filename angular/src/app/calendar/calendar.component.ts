@@ -52,7 +52,7 @@ export class CalendarComponent implements OnInit{
   ) {}
 
   ngOnInit() {
-    this._route.params.subscribe((params: Params) => {
+    this._route.parent.params.subscribe((params: Params) => {
       console.log(params);
       this.UserId = params.id;
       console.log(this.UserId);
