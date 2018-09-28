@@ -26,7 +26,7 @@ export class HttpService {
     return this._http.post('/api/User/new', body);
   }
   createDate(user1_id, body){
-    return this._http.put('api/User/newdate' + user1_id, body);
+    return this._http.put('api/User/newdate/' + user1_id, body);
   }
   getLoginUser(body){
     return this._http.get('/api/User/login', body);
@@ -41,6 +41,8 @@ export class HttpService {
     return this._http.get('/api/Users/'+city);
   }
   updateUser(user2_id, body){
+    console.log("updateuser: ", user2_id)
+    console.log(body)
     return this._http.put('api/User2/' + user2_id, body);
   }
   deleteDate(date_id){
