@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
         city: '' 
     }
     confirmpassword;
-    error;
+    error: string;
     constructor(
         private _httpService: HttpService,
         private _route: ActivatedRoute,
@@ -36,8 +36,10 @@ export class RegisterComponent implements OnInit {
             obs.subscribe((newUser: any) => {
                 console.log('createUser server respons data:', newUser);
                 if (newUser['errors']) {
-                    console.log(newUser['error']); 
-                    this.error = newUser.message;
+                    const errors = newUser['errors'];
+                    Object.keys(errors).forEach((key) => {
+                        this.error = errors[key].message;
+                    });
                 } else {
                     console.log('Create User success', newUser);
                     this.newUser = { 
